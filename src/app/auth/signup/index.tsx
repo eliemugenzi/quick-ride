@@ -2,7 +2,7 @@ import ScreenWrapper from "@/components/ScreenWrapper";
 import TextInput from "@/components/TextInput";
 import Typography from "@/components/Typography";
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import Icon from "@/components/Icon";
 import COLORS from "@/theme/colors";
@@ -14,11 +14,9 @@ import { useAtom } from "jotai";
 import schema from "./validationSchema";
 import signUpAtom from "@/atoms/userAtom";
 import componentDimensions from "@/theme/componentDimensions";
-
+import OrLine from "@/components/OrLine";
 const SignUp = () => {
-  const [{ data, error }, signUp] = useAtom(signUpAtom);
-
-  console.log({ data, error });
+  const [{ data, error }, signUp] = useAtom(signUpAtom) as any;
   const { errors, handleSubmit, handleChange, values, setFieldValue } =
     useFormik({
       initialValues: {
@@ -28,10 +26,15 @@ const SignUp = () => {
         gender: "",
       },
       onSubmit: (values: any) => {
-        signUp({
-          data: values,
-          callback: () => router.navigate("/(tabs)"),
-        });
+        // signUp({
+        //   data: values,
+        //   callback: () => router.navigate("/(tabs)"),
+        // });
+
+        router.push({
+          pathname: '/auth/otp-verification',
+          params: values
+        })
       },
       validationSchema: schema,
     });
@@ -113,6 +116,10 @@ const SignUp = () => {
       <Button type="primary" style={[styles.input]} onPress={handleSubmit}>
         Signup
       </Button>
+      <OrLine style={{marginBottom: 10}} />
+      <Typography.Text style={styles.text}>Already have an account? <TouchableOpacity 
+      style={{alignItems: 'center', justifyContent: 'center', alignSelf: 'center', marginTop: -3}}
+      onPress={()=> router.navigate('/auth/signin')}><Typography.Text style={[styles.textPrimary, { alignSelf: 'center' }]}>Sign in</Typography.Text></TouchableOpacity></Typography.Text>
     </ScreenWrapper>
   );
 };

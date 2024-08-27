@@ -14,6 +14,19 @@ const styles = StyleSheet.create({
   input: {
     marginVertical: DIMENSIONS.margin,
   },
+  textGray: {
+    color: COLORS.darkGray,
+    fontSize: 12,
+  },
+  textPrimary: {
+    color: COLORS.primary,
+    fontSize: 12,
+  },
+  text: {
+    fontSize: 12,
+    color: COLORS.black,
+    textAlign: 'center'
+  }
 });
 
 export default styles;

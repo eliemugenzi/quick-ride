@@ -90,13 +90,13 @@ const Otp: React.FC<Props> = ({
     }
   };
 
-  console.log({ codes });
   return (
     <View style={styles.container}>
       {codes?.map((code, index) => (
         <Number
           key={index}
-          style={[styles.input, focusedIndex === index && styles.focusedInput]}
+          style={{width: 50, height: 50}}
+          // style={[styles.input, focusedIndex === index && styles.focusedInput]}
           onChange={(text) => {
             onCodeChange(text, index);
           }}

@@ -18,6 +18,11 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
     fontSize: 12,
   },
+  text: {
+    fontSize: 12,
+    color: COLORS.black,
+    textAlign: 'center'
+  }
 });
 
 export default styles;

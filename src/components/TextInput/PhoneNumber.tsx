@@ -55,7 +55,6 @@ const PhoneNumber: React.FC<Props> = ({ value, onChangeText, ...props }) => {
         },
       }}
       onChangePhoneNumber={(val) => {
-        console.log({ val });
         if (val) {
           onChangeText?.(val);
         }

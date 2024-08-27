@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "my-app",
-    "slug": "my-app",
-    "version": "1.0.0",
+    "name": "Quick Ride",
+    "slug": "quick-ride",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./src/assets/images/icon.png",
     "scheme": "myapp",
@@ -39,7 +39,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "f1b2f4ac-53d8-44a5-876e-4713f67d85c3"
+        "projectId": "e6b1e065-1022-432d-b3d3-10a5cdf14961"
       }
     }
   }

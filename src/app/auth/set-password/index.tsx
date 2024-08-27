@@ -5,9 +5,35 @@ import React from "react";
 
 import styles from "./styles";
 import Button from "@/components/Button";
-import { router } from "expo-router";
+import { router, useGlobalSearchParams } from "expo-router";
+import { useFormik } from "formik";
+import validationSchema from "./validationSchema";
+import { useAtom } from "jotai";
+import signUpAtom from "@/atoms/userAtom";
 
 const SetPassword = () => {
+  const [{ data, error }, signUp] = useAtom(signUpAtom) as any;
+
+  const params = useGlobalSearchParams();
+
+  const { values, errors, handleChange, handleSubmit } = useFormik({
+    validationSchema,
+    initialValues: {
+      password: "",
+      confirmPassword: "",
+    },
+    onSubmit: (values: any) => {
+      const payload = {
+        ...params,
+        password: values?.password,
+      };
+
+      signUp({
+          data: payload,
+          callback: () => router.navigate("/(tabs)"),
+        });
+    },
+  });
   return (
     <ScreenWrapper
       hasBack
@@ -22,17 +48,28 @@ const SetPassword = () => {
         Set your new password
       </Typography.Text>
       <TextInput.Password
+        value={values?.password}
+        onChange={handleChange("password")}
+        hasError={!!errors?.password}
+        error={(errors?.password as any) || undefined}
         placeholder="Enter Your New Password"
         style={styles.input}
       />
-      <TextInput.Password placeholder="Confirm Password" style={styles.input} />
+      <TextInput.Password
+        value={values?.confirmPassword}
+        onChange={handleChange("confirmPassword")}
+        hasError={!!errors?.confirmPassword}
+        error={(errors?.confirmPassword as any) || error || undefined}
+        placeholder="Confirm Password"
+        style={styles.input}
+      />
       <Typography.Text style={styles.text}>
         At least 1 number or a special character
       </Typography.Text>
       <Button
         type="primary"
         style={[styles.input, { marginTop: 20 }]}
-        onPress={() => router.navigate("/auth/signin")}
+        onPress={handleSubmit}
       >
         Save
       </Button>

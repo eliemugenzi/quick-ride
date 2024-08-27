@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo, useRef } from "react";
 import { StyleSheet, StyleProp, ViewStyle, View } from "react-native";
 import Sheet, { BottomSheetView } from "@gorhom/bottom-sheet";
+import Icon from "../Icon";
 
 interface Props {
   children: React.ReactNode;
@@ -23,7 +24,9 @@ const BottomSheet: React.FC<Props> = ({ children, style, onClose }) => {
       onChange={handleSheetChanges}
       style={{ marginHorizontal: 10 }}
     >
-      <BottomSheetView style={styles.contentContainer}>
+      <BottomSheetView 
+      // style={styles.contentContainer}
+      >
         <View style={[styles.container, style]}>{children}</View>
       </BottomSheetView>
     </Sheet>

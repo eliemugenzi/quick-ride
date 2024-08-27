@@ -23,10 +23,12 @@ import Typography from "@/components/Typography";
 import Line from "@/components/Line";
 import componentDimensions from "@/theme/componentDimensions";
 import Location from "@/components/Location";
-import { router } from "expo-router";
+import { router, useNavigation } from "expo-router";
+
 
 
 const Home = () => {
+  const navigation = useNavigation();
   const [transportmModalOpen, setTransportModalOpen] = useState(false);
   const [canConfirmSelectedAddress, setCanConfirmSelectedAddress] =
     useState(false);
@@ -37,7 +39,7 @@ const Home = () => {
       }}
     >
       <TouchableOpacity style={styles.hamburgerIcon} onPress={()=> {
-        router.navigate('/(drawer)')
+        navigation.openDrawer();
       }}>
         <Ionicons name="menu" color={COLORS.black} size={30} />
       </TouchableOpacity>

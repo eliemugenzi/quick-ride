@@ -14,7 +14,6 @@ import Button from "@/components/Button";
 
 const PaymentSuccess = () => {
   const [paid, setPaid] = useState(true);
-  console.log({ paid });
   return (
     <ScreenWrapper hasBack>
       <CarDetail name="Mustang GT" review="4.9" image={carImage} />

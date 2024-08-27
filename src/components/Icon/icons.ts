@@ -36,6 +36,8 @@ import cash from "./xml/cash";
 import confirmed from "./xml/confirmed";
 import sourceTrack from "./xml/source-track";
 import destinationTrack from "./xml/destination-track";
+import edit from "./xml/edit";
+import orLine from "./xml/or-line";
 
 const icons = {
   "onboarding-one": onboarding1,
@@ -76,6 +78,8 @@ const icons = {
   confirmed,
   "source-track": sourceTrack,
   "destination-track": destinationTrack,
+  edit,
+  "or-line": orLine
 };
 
 export type IconsNames = keyof typeof icons;

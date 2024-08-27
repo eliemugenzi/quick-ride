@@ -3,10 +3,14 @@ import TextInput from "@/components/TextInput";
 import Typography from "@/components/Typography";
 import React from "react";
 import styles from "./styles";
-import { router } from "expo-router";
+import { router, useGlobalSearchParams } from "expo-router";
 import Button from "@/components/Button";
 
 const OTPVerification = () => {
+
+  const params = useGlobalSearchParams();
+
+  console.log('PARAMS___', params)
   return (
     <ScreenWrapper
       hasBack
@@ -31,7 +35,10 @@ const OTPVerification = () => {
         type="primary"
         style={[styles.input, { marginTop: 50 }]}
         onPress={() => {
-          router.navigate("/auth/set-password");
+          router.push({
+            pathname: '/auth/set-password',
+            params
+          })
         }}
       >
         Verify
