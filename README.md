@@ -26,7 +26,7 @@ To run the React Native Expo application locally on your macOS machine, follow t
 1. **Clone the Repository**: Clone the project repository to your local machine.
 
 ```bash
-git clone git@github.com:Irembo/irembo-service-distribution-app.git cd cd irembo-service-distribution-app
+git clone git@github.com:eliemugenzi/quick-ride.git cd cd quick-ride
 ```
 
 2. **Install Dependencies**: Install the project dependencies
